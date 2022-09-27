@@ -18,6 +18,12 @@ class CartPage extends StatelessWidget {
       ),
       body: Column(
         children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: items.length,
+              itemBuilder: (ctx, i) => CartItemWidget(items[i]),
+            ),
+          ),
           Card(
             margin: const EdgeInsets.symmetric(
               horizontal: 15,
@@ -58,12 +64,6 @@ class CartPage extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: items.length,
-              itemBuilder: (ctx, i) => CartItemWidget(items[i]),
             ),
           ),
         ],

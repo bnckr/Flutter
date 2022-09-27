@@ -24,7 +24,7 @@ class ProductItem extends StatelessWidget {
               },
               icon: Icon(
                   product.isFavorite ? Icons.favorite : Icons.favorite_border),
-              color: Theme.of(context).colorScheme.secondary,
+              color: Colors.red,
             ),
           ),
           title: Text(
@@ -36,7 +36,7 @@ class ProductItem extends StatelessWidget {
               cart.addItem(product);
             },
             icon: const Icon(Icons.shopping_cart),
-            color: Theme.of(context).colorScheme.secondary,
+            color: Colors.blueGrey,
           ),
         ),
         child: GestureDetector(

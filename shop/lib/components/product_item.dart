@@ -24,11 +24,11 @@ class ProductItem extends StatelessWidget {
               },
               icon: Icon(
                   product.isFavorite ? Icons.favorite : Icons.favorite_border),
-              color: Colors.red,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
           title: Text(
-            product.title,
+            product.name,
             textAlign: TextAlign.center,
           ),
           trailing: IconButton(
@@ -36,7 +36,7 @@ class ProductItem extends StatelessWidget {
               cart.addItem(product);
             },
             icon: const Icon(Icons.shopping_cart),
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.secondary,
           ),
         ),
         child: GestureDetector(
@@ -46,7 +46,7 @@ class ProductItem extends StatelessWidget {
           ),
           onTap: () {
             Navigator.of(context).pushNamed(
-              AppRoutes.PRODUCT_DETAIL,
+              AppRoutes.productDetail,
               arguments: product,
             );
           },

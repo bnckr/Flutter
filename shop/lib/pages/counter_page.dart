@@ -1,12 +1,8 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import 'package:shop/Providers/counter.dart';
+import 'package:shop/providers/counter.dart';
 
 class CounterPage extends StatefulWidget {
-  const CounterPage({
-    Key? key,
-  }) : super(key: key);
+  const CounterPage({Key? key}) : super(key: key);
 
   @override
   State<CounterPage> createState() => _CounterPageState();
@@ -16,9 +12,10 @@ class _CounterPageState extends State<CounterPage> {
   @override
   Widget build(BuildContext context) {
     final provider = CounterProvider.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Contador'),
+        title: const Text('Exemplo Contador'),
       ),
       body: Column(
         children: [
@@ -28,18 +25,18 @@ class _CounterPageState extends State<CounterPage> {
               setState(() {
                 provider?.state.inc();
               });
-              print(provider?.state.value);
+              // print(provider?.state.value);
             },
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
           ),
           IconButton(
             onPressed: () {
               setState(() {
                 provider?.state.dec();
               });
-              print(provider?.state.value);
+              // print(provider?.state.value);
             },
-            icon: Icon(Icons.remove),
+            icon: const Icon(Icons.remove),
           ),
         ],
       ),

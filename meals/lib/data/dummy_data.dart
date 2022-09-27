@@ -270,7 +270,7 @@ const DUMMY_MEALS = [
   ),
   Meal(
     id: 'm8',
-    categories: ['c8'],
+    categories: ['c6'],
     title: 'Creme Indiano de Frango com Curry',
     cost: Cost.fair,
     complexity: Complexity.medium,

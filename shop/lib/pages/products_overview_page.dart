@@ -4,6 +4,7 @@ import 'package:shop/components/app_drawer.dart';
 import 'package:shop/components/badge.dart';
 import 'package:shop/components/product_grid.dart';
 import 'package:shop/models/cart.dart';
+import 'package:shop/models/product_list.dart';
 import 'package:shop/utils/app_routes.dart';
 
 enum FilterOptions {
@@ -19,6 +20,20 @@ class ProductsOverviewPage extends StatefulWidget {
 }
 
 class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    Provider.of<ProductList>(context, listen: false)
+        .loadProducts()
+        .then((value) {
+      setState(() {
+        _isLoading = false;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +54,9 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
           ),
         ],
       ),
-      body: ProductGrid(),
+      body: _isLoading
+          ? Center(child: CircularProgressIndicator())
+          : ProductGrid(),
       drawer: const AppDrawer(),
     );
   }

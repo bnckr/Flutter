@@ -19,36 +19,12 @@ class ProductsOverviewPage extends StatefulWidget {
 }
 
 class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
-  bool _showFavoriteOnly = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Minha Loja'),
         actions: [
-          PopupMenuButton(
-            icon: const Icon(Icons.more_vert),
-            itemBuilder: (_) => [
-              const PopupMenuItem(
-                value: FilterOptions.favorite,
-                child: Text('Somente Favoritos'),
-              ),
-              const PopupMenuItem(
-                value: FilterOptions.all,
-                child: Text('Todos'),
-              ),
-            ],
-            onSelected: (FilterOptions selectedValue) {
-              setState(() {
-                if (selectedValue == FilterOptions.favorite) {
-                  _showFavoriteOnly = true;
-                } else {
-                  _showFavoriteOnly = false;
-                }
-              });
-            },
-          ),
           Consumer<Cart>(
             child: IconButton(
               onPressed: () {
@@ -63,7 +39,7 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
           ),
         ],
       ),
-      body: ProductGrid(_showFavoriteOnly),
+      body: ProductGrid(),
       drawer: const AppDrawer(),
     );
   }

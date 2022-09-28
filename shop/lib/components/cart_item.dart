@@ -31,19 +31,21 @@ class CartItemWidget extends StatelessWidget {
         return showDialog<bool>(
           context: context,
           builder: (ctx) => AlertDialog(
-            title: const Text('Tem certeza?'),
+            title: const Text('Tem Certeza?'),
             content: const Text('Quer remover o item do carrinho?'),
             actions: [
               TextButton(
-                  onPressed: () {
-                    Navigator.of(ctx).pop(false);
-                  },
-                  child: const Text('Não')),
+                child: const Text('Não'),
+                onPressed: () {
+                  Navigator.of(ctx).pop(false);
+                },
+              ),
               TextButton(
-                  onPressed: () {
-                    Navigator.of(ctx).pop(true);
-                  },
-                  child: const Text('Sim')),
+                child: const Text('Sim'),
+                onPressed: () {
+                  Navigator.of(ctx).pop(true);
+                },
+              ),
             ],
           ),
         );

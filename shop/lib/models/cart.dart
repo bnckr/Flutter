@@ -58,6 +58,7 @@ class Cart with ChangeNotifier {
     if (!_items.containsKey(productId)) {
       return;
     }
+
     if (_items[productId]?.quantity == 1) {
       _items.remove(productId);
     } else {

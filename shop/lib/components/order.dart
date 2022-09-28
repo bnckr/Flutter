@@ -42,31 +42,32 @@ class _OrderWidgetState extends State<OrderWidget> {
                 horizontal: 15,
                 vertical: 4,
               ),
-              height: (widget.order.products.length * 25.0) + 10,
+              height: (widget.order.products.length * 24) + 10,
               child: ListView(
-                  children: widget.order.products.map(
-                (product) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        product.name,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                children: widget.order.products.map(
+                  (product) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          product.name,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      Text(
-                        '${product.quantity}x R\$ ${product.price}',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.grey,
+                        Text(
+                          '${product.quantity}x R\$ ${product.price}',
+                          style: const TextStyle(
+                            fontSize: 18,
+                            color: Colors.grey,
+                          ),
                         ),
-                      )
-                    ],
-                  );
-                },
-              ).toList()),
+                      ],
+                    );
+                  },
+                ).toList(),
+              ),
             ),
         ],
       ),

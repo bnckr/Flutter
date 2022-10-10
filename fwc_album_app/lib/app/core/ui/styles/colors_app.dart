@@ -1,0 +1,21 @@
+import 'package:flutter/animation.dart';
+import 'package:flutter/cupertino.dart';
+
+class ColorsApp {
+  static ColorsApp? _instance;
+
+  ColorsApp._();
+  static ColorsApp get i {
+    _instance ??= ColorsApp._();
+    return _instance!;
+  }
+
+  Color get primary => const Color(0XFF791435);
+  Color get gray => const Color(0XFFCCCCCC);
+  Color get yellow => const Color(0XFFFDCE50);
+  Color get grayDart => const Color(0XFF999999);
+}
+
+extension ColorsAppExtensions on BuildContext {
+  ColorsApp get colors => ColorsApp.i;
+}

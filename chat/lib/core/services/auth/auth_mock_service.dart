@@ -1,20 +1,19 @@
+import 'dart:io';
 import 'dart:async';
 import 'dart:math';
 
 import 'package:chat/core/models/chat_user.dart';
-import 'dart:io';
-
 import 'package:chat/core/services/auth/auth_service.dart';
 
 class AuthMockService implements AuthService {
-  static final _defaultUser = ChatUser(
-    id: '1',
-    name: 'Testes',
-    email: 'teste@teste.com',
+  static const _defaultUser = ChatUser(
+    id: '456',
+    name: 'Ana',
+    email: 'ana@cod3r.com.br',
     imageURL: 'assets/images/bot.png',
   );
 
-  static Map<String, ChatUser> _users = {
+  static final Map<String, ChatUser> _users = {
     _defaultUser.email: _defaultUser,
   };
   static ChatUser? _currentUser;
@@ -23,9 +22,33 @@ class AuthMockService implements AuthService {
     _controller = controller;
     _updateUser(_defaultUser);
   });
+
   @override
   ChatUser? get currentUser {
     return _currentUser;
+  }
+
+  @override
+  Stream<ChatUser?> get userChanges {
+    return _userStream;
+  }
+
+  @override
+  Future<void> signup(
+    String name,
+    String email,
+    String password,
+    File? image,
+  ) async {
+    final newUser = ChatUser(
+      id: Random().nextDouble().toString(),
+      name: name,
+      email: email,
+      imageURL: image?.path ?? 'assets/images/avatar.png',
+    );
+
+    _users.putIfAbsent(email, () => newUser);
+    _updateUser(newUser);
   }
 
   @override
@@ -36,25 +59,6 @@ class AuthMockService implements AuthService {
   @override
   Future<void> logout() async {
     _updateUser(null);
-  }
-
-  @override
-  Future<void> signup(
-      String name, String email, String password, File? image) async {
-    final newUser = ChatUser(
-      id: Random().nextDouble().toString(),
-      name: name,
-      email: email,
-      imageURL: image?.path ?? 'assets/images/bot.png',
-    );
-
-    _users.putIfAbsent(email, () => newUser);
-    _updateUser(newUser);
-  }
-
-  @override
-  Stream<ChatUser?> get userChanges {
-    return _userStream;
   }
 
   static void _updateUser(ChatUser? user) {

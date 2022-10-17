@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "461690187458",
+    "project_id": "cod3r-chat-654bf",
+    "storage_bucket": "cod3r-chat-654bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461690187458:android:fabd843c0137fc591bd55b",
+        "android_client_info": {
+          "package_name": "br.com.bincker.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461690187458-29i1l05r9gmnrmi4pcgd03ncp09u50rl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHNkNuMx5xyS03jM-lnmpBKige6JDz9bw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461690187458-29i1l05r9gmnrmi4pcgd03ncp09u50rl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

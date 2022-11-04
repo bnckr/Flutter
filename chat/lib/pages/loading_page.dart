@@ -14,13 +14,6 @@ class LoadingPage extends StatelessWidget {
             const CircularProgressIndicator(
               backgroundColor: Colors.white,
             ),
-            const SizedBox(height: 10),
-            Text(
-              'Carregando...',
-              style: TextStyle(
-                color: Theme.of(context).primaryTextTheme.headline6?.color,
-              ),
-            ),
           ],
         ),
       ),
